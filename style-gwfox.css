@@ -5017,38 +5017,58 @@ position: fixed !important;
 }
 }
 
-/* === USER OVERRIDES: TRANSLUCENT GLASS EFFECT === */
-:root {
-  --bg1: transparent !important;
-  --bg2: rgba(40, 40, 40, 0.6) !important;
-  --bg4: rgba(30, 30, 30, 0.8) !important;
-  --panel-background: rgba(30, 30, 30, 0.9) !important;
-  --arrowpanel-background: rgba(30, 30, 30, 0.9) !important;
+/* === CUSTOM TWEAK: DIM INACTIVE TABS === */
+.tabbrowser-tab:not([selected="true"]) {
+  opacity: 0.4 !important;
+  filter: grayscale(50%) !important;
+  transition: opacity 0.2s ease !important;
 }
 
-#main-window {
-  background-color: transparent !important;
-  appearance: none !important;
+.tabbrowser-tab[selected="true"] {
+  opacity: 1 !important;
+  filter: none !important;
 }
 
-#navigator-toolbox {
-  background-color: transparent !important;
-  border: none !important;
+/* Brighten on hover */
+.tabbrowser-tab:not([selected="true"]):hover {
+  opacity: 0.8 !important;
+  filter: none !important;
 }
 
-#nav-bar, #PersonalToolbar, #TabsToolbar {
-  background-color: transparent !important;
-  background-image: none !important;
+/* === CUSTOM TWEAK: DIM EXTENSION ICONS === */
+#nav-bar .toolbarbutton-1 {
+  opacity: 0.4 !important;
+  transition: opacity 0.2s ease !important;
 }
 
-#browser, #appcontent, .browserContainer, #tabbrowser-tabpanels {
-  background-color: transparent !important;
-  background-image: none !important;
+#nav-bar .toolbarbutton-1:hover {
+  opacity: 1 !important;
 }
 
-.tab-background {
-  background-color: rgba(255, 255, 255, 0.1) !important;
+/* Ensure the main menu and unified extensions buttons are also included */
+#PanelUI-menu-button, #unified-extensions-button {
+  opacity: 0.4 !important;
 }
-.tab-background[selected] {
-  background-color: rgba(255, 255, 255, 0.2) !important;
+
+#PanelUI-menu-button:hover, #unified-extensions-button:hover {
+  opacity: 1 !important;
+}
+
+/* === CUSTOM TWEAK: DIM URL BAR === */
+#urlbar:not([focused]):not(:hover) {
+  opacity: 0.4 !important;
+  transition: opacity 0.2s ease !important;
+}
+
+#urlbar:hover, #urlbar[focused] {
+  opacity: 1 !important;
+}
+
+/* === CUSTOM TWEAK: SOFTEN ACTIVE TAB === */
+.tabbrowser-tab[selected="true"] {
+  opacity: 0.8 !important;
+}
+
+.tabbrowser-tab[selected="true"]:hover {
+  opacity: 1.0 !important;
 }
